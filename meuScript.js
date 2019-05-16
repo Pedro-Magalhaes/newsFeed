@@ -6,7 +6,8 @@ xhttp.onreadystatechange = function() {
        let text = json.totalResults + "  " + json.status;
        let content = "";
        for (let index = 0; index < json.articles.length; index++) {
-        content = content + "<p>" + json.articles[index].title + "</p><br> <p>" + json.articles[index].content + "</p> <br><br> " ;
+        content = content + "<h2 class=\"article_title\">" + json.articles[index].title + 
+            "</h2><br> <p class=\"article_description\">" + json.articles[index].description + "</p> <br><br> " ;
            
        }
        document.getElementById("mainDiv").innerHTML = content;
