@@ -1,0 +1,60 @@
+.article_title {
+  min-height: 1em;
+	height: auto;
+	border: 0px; 
+  padding: 0px;
+  margin: 0px;
+  text-align: center;  	
+  font-size: 140%;
+  color: black;
+}
+.article_description { 
+    min-height: 100px;
+    padding: 2px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: Helvetica;
+    color: black;
+    overflow: auto;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+
+
+#mainDiv {
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.article_link {
+  text-decoration: none;
+}
+
+.article {
+  background-color: rgba(230, 230, 230, 1);
+  width: 400px;
+  padding: 15px;
+  margin: 2px;
+  border: 1px solid white;
+}
+.article:hover {
+  background-color: rgba(230, 230, 230, 0.7)
+}
+.button {
+    background-color: rgb(48, 158, 201); /* Green */
+    margin: 4px;
+    border: white;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+  }

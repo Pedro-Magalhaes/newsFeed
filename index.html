@@ -2,22 +2,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>News Feed</title>
 <title>Title of the document</title>
-<style>
-.article_title {
-    
-}
-.article_description {
 
-}
-
-#mainDiv {
-}
-</style>
+<!-- Arquivo com o estilo da pagina -->
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div id="mainDiv"></div>
+    <div class="flex-container">
+        <div id=header>  
+            <button class="button" type="button" onclick="loadResults('us')"> USA </button>
+        </div>
+        <div id=header>  
+            <button class="button" type="button" onclick="loadResults('br')"> Brasil </button>
+        </div>
+        <div id=header>  
+            <button class="button" type="button" onclick="loadResults('ar')"> Argentina </button>
+        </div>
+    </div>
+    <div class="flex-container" id="mainDiv"></div>
 </body>
 <script src="meuScript.js"></script>
 </html>
