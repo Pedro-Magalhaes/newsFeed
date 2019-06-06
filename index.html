@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <metaname="viewport"
-content="width=device-width, initial-scale=1.0">
+content="width=device-width">
 <title>News Feed</title>
 <title>Title of the document</title>
 
-<!-- Arquivo com o estilo da pagina -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+	<!-- Input do usuário -->
     <div class="flex-container">
-        <div id=header>  
-            <button class="button" type="button" onclick="loadResults('us')"> USA </button>
-        </div>
-        <div id=header>  
-            <button class="button" type="button" onclick="loadResults('br')"> Brasil </button>
-        </div>
-        <div id=header>  
-            <button class="button" type="button" onclick="loadResults('ar')"> Argentina </button>
-        </div>
-    </div>
+        <form class="form-inline" id="form1">
+		  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Pais</label>
+		  <select onChange="change(this)" class="custom-select my-1 mr-sm-2" id="pais">
+			<option selected value="br">Brasil</option>
+			<option value="ar">Argentina</option>
+			<option value="us">Estados Unidos</option>
+			<option value="mx">Mexico</option>
+			<option value="ve">Venezuela</option>
+			<option value="pt">Portugal</option>
+			<option value="co">Colombia</option>
+		  </select>
+		  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categoria</label>
+		  <select onChange="change(this)" class="custom-select my-1 mr-sm-2" id="categoria">
+		  <option selected value="general">Geral</option>
+			<option value="business">Negocios</option>
+			<option value="entertainment">Entretenimento</option>
+			<option value="health">Saúde</option>
+			<option value="science">Ciência</option>
+			<option value="sports">Esportes</option>
+			<option value="technology">Tecnologia</option>
+		  </select>
+		  
+		</form>
+		<button onclick="submit()" class="btn btn-primary my-1">Enviar</button>
+	</div>
+	
+	<!-- Conteiner para os cards de noticias -->
     <div class="flex-container" id="mainDiv"></div>
+	
 </body>
+
+<!-- Arquivos JavaScrip -->
 <script src="meuScript.js"></script>
+
+<!-- Dependencias de css -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </html>
