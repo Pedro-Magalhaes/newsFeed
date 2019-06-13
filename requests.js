@@ -1,10 +1,10 @@
 const xhttp = new XMLHttpRequest();
-// https://newsapi.org/docs/endpoints/top-headlines descrição da api
-const baseUrl = "https://newsapi.org/v2/top-headlines"
+// https://newsapi.org/docs/endpoints descrição da api
+const baseUrl = "https://newsapi.org/v2/top-headlines";
 const apiKey = "a36cd6c4d2034e688b4ecc8b0e22b548";
+const everythingUrl = "https://newsapi.org/v2/everything";
 
-
-// declarando o listener da jamada http
+// declarando o listener da chamada http
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
@@ -22,6 +22,8 @@ function buildUrl(base, parametersArray) {
         return base + "?" + parametersArray.join("&");
     }
 }
+
+
 
 // recebe o pais a categoria e a query para a chamada à Api
 // se qualquer um deles for nulo utilizamos o default
@@ -42,4 +44,14 @@ function loadResults(country, category, query, page) {
     const url = buildUrl( baseUrl, UrlParametersArray );
     xhttp.open("GET", url , true);
     xhttp.send();
+}
+
+function searchByQuery(query, page) {
+	
+	const UrlParametersArray =  [`q=${query}`,
+                                 `page=${page}`, `apiKey=${apiKey}`]
+	const url = buildUrl( everythingUrl, UrlParametersArray );
+    xhttp.open("GET", url , true);
+    xhttp.send();
+	
 }

@@ -1,6 +1,6 @@
 
 
-
+// assertiva de entrada, recebe um elemento json
 function buildView(elements) {
 	 let content = "";
 	 for (let index = 0; index < elements.length; index++) {

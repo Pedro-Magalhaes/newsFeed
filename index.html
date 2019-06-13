@@ -15,6 +15,10 @@ content="width=device-width">
 <body>
 	<!-- Input do usuário -->
     <div class="flex-container">
+		<div style="width:100%">
+			<button onclick="changeSearch('categoria')" class="btn btn-primary my-1">Categoria/Pais</button>
+			<button onclick="changeSearch('busca')" class="btn btn-primary my-1">Busca</button>
+		</div>
         <form class="form-inline" id="form1">
 		  <!-- Seletor de país -->
 		  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Pais</label>
@@ -41,8 +45,17 @@ content="width=device-width">
 		  
 		</form>
 		<!-- botão de enviar -->
-		<button onclick="submit()" class="btn btn-primary my-1">Enviar</button>
+		<button onclick="submit()" class="btn btn-primary my-1">Alterar</button>
+		
+		<!-- Filtro de busca  -->
+		<div id="queryInput" class="input-group">
+			<input id="query" type="text" class="form-control" placeholder="digite sua busca">
+		<div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="button" onclick="submitSearch()">Procurar</button>
+		</div>
+		</div>
 	</div>
+	
 	
 	<!-- Conteiner para os cards de noticias -->
     <div class="flex-container" id="mainDiv"></div>
