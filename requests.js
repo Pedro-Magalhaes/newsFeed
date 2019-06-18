@@ -29,27 +29,25 @@ function buildUrl(base, parametersArray) {
 // se qualquer um deles for nulo utilizamos o default
 // country sigla do pais, category string representando a categoria
 // query String representando a keyword para busca
-// page inteiro para paginação de 0 a (total result/ pageSize)
-function loadResults(country, category, query, page) {
+// page inteiro para paginação de 1 a (total result/ pageSize)
+function loadResults(country, category, page, pageSize) {
     country = country || selectedCountry;
     category = category || selectedCategory;
     page = page || basePage;
-
+	console.log(pageSize);
     const UrlParametersArray =  [`country=${country}`, `category=${category}`,
-                                 `page=${page}`, `apiKey=${apiKey}`]
-    if ( query ) {
-        console.log(query);
-        UrlParametersArray.push(`q=${query}`);
-    } 
+                                 `page=${page}`, `apiKey=${apiKey}`,`pageSize=${pageSize}`]
+    
     const url = buildUrl( baseUrl, UrlParametersArray );
     xhttp.open("GET", url , true);
     xhttp.send();
 }
 
-function searchByQuery(query, page) {
-	
+function searchByQuery(query, page, pageSize) {
+	console.log(pageSize);
 	const UrlParametersArray =  [`q=${query}`,
-                                 `page=${page}`, `apiKey=${apiKey}`]
+                                 `page=${page}`, `apiKey=${apiKey}`,
+								 `pageSize=${pageSize}`]
 	const url = buildUrl( everythingUrl, UrlParametersArray );
     xhttp.open("GET", url , true);
     xhttp.send();

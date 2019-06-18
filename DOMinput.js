@@ -3,29 +3,35 @@
 // default values
 let selectedCountry = "br";
 let selectedCategory = "general"
-const pageSize = 20;
+const pageSize = 12;
 const basePage = 1;
 let currentPage = basePage;
-let visibility = 'none';
 
 function changeSearch( type ) { // TODO fazer logica de mudança
-	document.getElementById('queryInput').style.display = visibility;
-	if(visibility == 'none') {
-		visibility = 'flex';		
-	} else {
-		visibility = 'none';
+	if( type == 'categoria' ) {
+		document.getElementById('btn_categoria').classList.add("selecionado");
+		document.getElementById('btn_busca').classList.remove("selecionado");
+		document.getElementById('queryInput').style.display = 'none';
+		document.getElementById('categoria').style.display = 'flex';
+	} else if ( type == 'busca' ) {
+		document.getElementById('btn_busca').classList.add("selecionado");
+		document.getElementById('btn_categoria').classList.remove("selecionado");
+		document.getElementById('categoria').style.display = 'none';
+		document.getElementById('queryInput').style.display = 'flex';
 	}
 }
 
 function submit() {
 	currentPage = basePage;
-	loadResults(selectedCountry,selectedCategory);
+	console.log(pageSize);
+	loadResults(selectedCountry,selectedCategory, currentPage ,pageSize);
 }
 
 function submitSearch() {
 	let query = getQueryInputText();
 	currentPage = basePage;
-	searchByQuery(query,currentPage);
+	console.log(pageSize);
+	searchByQuery(query,currentPage,pageSize);
 }
 
 function change(selected) {
@@ -40,7 +46,7 @@ function change(selected) {
 	}
 }
 // chamada inicial
-loadResults(selectedCountry,selectedCategory,"",basePage);
+loadResults(selectedCountry,selectedCategory,basePage, pageSize);
 
 
 function getQueryInputText() {

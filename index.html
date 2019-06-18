@@ -15,10 +15,14 @@ content="width=device-width">
 <body>
 	<!-- Input do usuário -->
     <div class="flex-container">
-		<div style="width:100%">
-			<button onclick="changeSearch('categoria')" class="btn btn-primary my-1">Categoria/Pais</button>
-			<button onclick="changeSearch('busca')" class="btn btn-primary my-1">Busca</button>
+		<div class="btn-group mr-2" id="queryToggle">
+			<button id="btn_categoria" onclick="changeSearch('categoria')" class="btn btn-mybtn my-1 selecionado">Categoria/Pais</button>
+			<button id="btn_busca" onclick="changeSearch('busca')" class="btn btn-mybtn my-1">Busca</button>
 		</div>
+	</div>
+	<div class="flex-container">
+		<!-- Seleção de categoria e país -->
+		<div id="categoria" style="display:flex">
         <form class="form-inline" id="form1">
 		  <!-- Seletor de país -->
 		  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Pais</label>
@@ -47,8 +51,11 @@ content="width=device-width">
 		<!-- botão de enviar -->
 		<button onclick="submit()" class="btn btn-primary my-1">Alterar</button>
 		
+		</div>
+		
+		
 		<!-- Filtro de busca  -->
-		<div id="queryInput" class="input-group">
+		<div id="queryInput" class="input-group" style="display:none">
 			<input id="query" type="text" class="form-control" placeholder="digite sua busca">
 		<div class="input-group-append">
 			<button class="btn btn-outline-secondary" type="button" onclick="submitSearch()">Procurar</button>

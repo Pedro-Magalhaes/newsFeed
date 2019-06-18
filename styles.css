@@ -23,16 +23,33 @@ body {
   background-color: antiquewhite;
 }
 
+
+#categoria {
+}
+
 #queryInput {
 	width: 70%;
 	align-self: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 
 #mainDiv {
 }
+
+.btn-mybtn {
+	color: #007bff;
+	background-color: transparent;
+	border-color: #007bff;
+	
+		
+}
+.selecionado{
+		background-color: #007bff;
+		color: #fff;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
