@@ -3,14 +3,14 @@ const xhttp = new XMLHttpRequest();
 const baseUrl = "https://newsapi.org/v2/top-headlines";
 const apiKey = "a36cd6c4d2034e688b4ecc8b0e22b548";
 const everythingUrl = "https://newsapi.org/v2/everything";
-
+let global_append = false;
 // declarando o listener da chamada http
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
        let json = JSON.parse(xhttp.responseText);
        let text = json.totalResults + "  " + json.status;
-       buildView(json.articles);
+       buildView(json.articles, global_append);
 	}
 };
 
@@ -30,11 +30,11 @@ function buildUrl(base, parametersArray) {
 // country sigla do pais, category string representando a categoria
 // query String representando a keyword para busca
 // page inteiro para paginação de 1 a (total result/ pageSize)
-function loadResults(country, category, page, pageSize) {
+function loadResults(country, category, page, pageSize, append = false) {
+	global_append = append;
     country = country || selectedCountry;
     category = category || selectedCategory;
     page = page || basePage;
-	console.log(pageSize);
     const UrlParametersArray =  [`country=${country}`, `category=${category}`,
                                  `page=${page}`, `apiKey=${apiKey}`,`pageSize=${pageSize}`]
     
@@ -43,8 +43,8 @@ function loadResults(country, category, page, pageSize) {
     xhttp.send();
 }
 
-function searchByQuery(query, page, pageSize) {
-	console.log(pageSize);
+function searchByQuery(query, page, pageSize, append = false) {
+	global_append = append;
 	const UrlParametersArray =  [`q=${query}`,
                                  `page=${page}`, `apiKey=${apiKey}`,
 								 `pageSize=${pageSize}`]

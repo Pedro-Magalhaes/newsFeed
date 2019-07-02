@@ -38,6 +38,12 @@ body {
 #mainDiv {
 }
 
+#btn_see_more {
+	
+	margin-top: 8px;
+	margin-bottom: 12px;
+}	
+
 .btn-mybtn {
 	color: #007bff;
 	background-color: transparent;
