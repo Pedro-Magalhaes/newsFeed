@@ -9,6 +9,13 @@ let currentPage = basePage;
 let searchType = 'categoria';
 let query = "";
 
+/*
+	Recebe uma string e altera as propriedades de alguns elementos com base nisso
+	PRÉ: type é uma string com valor 'categoria' ou 'busca'
+		(Verificação: as condicionais só resultam em alguma ação nesses dois casos)
+	PÓS: de acordo com o valor de type, altera a classe dos botões btn_categoria e btn_busca
+		e esconde ou exibe as categorias e a barra de busca
+*/
 function changeSearch( type ) { // TODO fazer logica de mudança
 	if( type == 'categoria' ) {
 		searchType = 'categoria';

@@ -4,7 +4,12 @@ const baseUrl = "https://newsapi.org/v2/top-headlines";
 const apiKey = "a36cd6c4d2034e688b4ecc8b0e22b548";
 const everythingUrl = "https://newsapi.org/v2/everything";
 let global_append = false;
-// declarando o listener da chamada http
+
+/*
+	Listener que recebe a resposta da chamada à API
+	PRÉ: resposta da chamada à API em xhttp.responseText (um array de elementos jsons)
+	PÓS: chamada à função buildView, passando como parâmetro um array de jsons das notícias
+*/
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
@@ -14,6 +19,12 @@ xhttp.onreadystatechange = function() {
 	}
 };
 
+/*
+	Monta uma string com base nos parâmetros e url base fornecidos
+	PRÉ: base é uma string e parametersArray é um array de strings
+	PÓS: uma string concatenando a string 'base' com a chave da API (global) ou
+		o array de parâmetros separados pelo caractere '&'
+*/
 function buildUrl(base, parametersArray) {
     base = base || baseUrl;
     if( !parametersArray ) {
@@ -24,12 +35,14 @@ function buildUrl(base, parametersArray) {
 }
 
 
-
-// recebe o pais a categoria e a query para a chamada à Api
-// se qualquer um deles for nulo utilizamos o default
-// country sigla do pais, category string representando a categoria
-// query String representando a keyword para busca
-// page inteiro para paginação de 1 a (total result/ pageSize)
+/*
+	Recebe o país, a categoria, a página e o tamanho de página e realiza a chamada à API
+	PRÉ: country é uma string com a sigla do país (dentre os permitidos pela API),
+		category é uma categoria dentre as permitidas pela API,
+		page é um inteiro maior que zero,
+		pageSize é um inteiro maior que zero
+	PÓS: é realizada a chamada à API conforme as variáveis entradas
+*/
 function loadResults(country, category, page, pageSize, append = false) {
 	global_append = append;
     country = country || selectedCountry;
@@ -43,6 +56,13 @@ function loadResults(country, category, page, pageSize, append = false) {
     xhttp.send();
 }
 
+/*
+	Recebe uma busca, a página e o tamanho de página e realiza a chamada à API
+	PRÉ: query é uma string de busca para a chamada à API
+		page é um inteiro maior que zero,
+		pageSize é um inteiro maior que zero
+	PÓS: é realizada a chamada à API conforme as variáveis entradas
+*/
 function searchByQuery(query, page, pageSize, append = false) {
 	global_append = append;
 	const UrlParametersArray =  [`q=${query}`,
