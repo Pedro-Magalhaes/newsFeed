@@ -19,4 +19,9 @@ function buildView(elements, append = false) {
 		   
 	   }
 	   document.getElementById("mainDiv").innerHTML = content;
+	   showErrorInView("");
+}
+
+function showErrorInView(error) {
+	document.getElementById("errorDiv").innerHTML = error;
 }

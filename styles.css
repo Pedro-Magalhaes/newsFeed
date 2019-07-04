@@ -38,6 +38,10 @@ body {
 #mainDiv {
 }
 
+#errorDiv {
+	color: rgba(255, 0, 0, 1);
+}
+
 #btn_see_more {
 	
 	margin-top: 8px;
