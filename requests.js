@@ -8,7 +8,11 @@ let global_append = false;
 /*
 	Listener que recebe a resposta da chamada à API
 	PRÉ: resposta da chamada à API em xhttp.responseText (um array de elementos jsons)
-	PÓS: chamada à função buildView, passando como parâmetro um array de jsons das notícias (linha 18)
+	PÓS: chamada à função buildView, passando como parâmetro um array de jsons das notícias
+	Justsificativa: foram passados os parâmetros adequados conforme requirido por buildView.
+		O parâmetro json.articles é proveniente da definição da API como resposta e o global_append
+		é uma booleana que indica se os artigos devem ser adicionados ao fim ("ver mais") ou
+		substituídos (nova busca).
 */
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -22,8 +26,11 @@ xhttp.onreadystatechange = function() {
 /*
 	Monta uma string com base nos parâmetros e url base fornecidos
 	PRÉ: base é uma string e parametersArray é um array de strings
-	PÓS: uma string concatenando a string 'base' com a chave da API (global) (linha 31) ou
-		o array de parâmetros separados pelo caractere '&' (linha 33)
+	PÓS: uma string concatenando a string 'base' com a chave da API (global) (linha 38) ou
+		o array de parâmetros separados pelo caractere '&' (linha 40)
+	Justificativa: a string base é substituída pela url padrão se não for informada.
+		A concatenação das strings monta a string a ser retornada formatada
+		conforme necessário para o funcionamento da API.
 */
 function buildUrl(base, parametersArray) {
     base = base || baseUrl;
@@ -43,6 +50,10 @@ function buildUrl(base, parametersArray) {
 		pageSize é um inteiro maior que zero
 	PÓS: é realizada a chamada à API conforme as variáveis entradas (chamada à buildUrl monta o URL,
 		métodos de xhttp fazem a chamada)
+	Justificativa: A função faz a verificação dos valores de entrada (country, category, 
+		page e pageSize), informando o erro caso necessário ou utilizando o valor padrão.
+		São informados os parâmetros através do UrlParametersArray e chamada a função
+		buildUrl para montar o url e realizar a chamada à API.
 */
 function loadResults(country, category, page, pageSize, append = false) {
 	global_append = append;
@@ -82,6 +93,10 @@ function loadResults(country, category, page, pageSize, append = false) {
 		pageSize é um inteiro maior que zero
 	PÓS: é realizada a chamada à API conforme as variáveis entradas (chamada à buildUrl monta o URL,
 		métodos de xhttp fazem a chamada)
+	Justificativa: A função faz a verificação dos valores de entrada (query, page e pageSize),
+		informando o erro caso necessário ou utilizando o valor padrão.
+		São informados os parâmetros através do UrlParametersArray e chamada a função
+		buildUrl para montar o url e realizar a chamada à API.
 */
 function searchByQuery(query, page, pageSize, append = false) {
 	global_append = append;
