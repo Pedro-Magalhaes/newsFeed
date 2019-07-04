@@ -158,7 +158,12 @@ body {
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
+  body {
+	  font-size: 1.3rem;
+  }
+  .btn {
+	  font-size: 1.3rem !important;
+  }
   .article {
       width: 80%;
     }
@@ -184,7 +189,12 @@ body {
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-  
+  body {
+	  font-size: 1.3rem;
+  }
+  .btn {
+	  font-size: 1.3rem !important; 
+  }
   .article {
       width: 80%;
     }
